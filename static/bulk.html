@@ -1,0 +1,78 @@
+<!--
+  Video background single-file demo
+  Language: HTML + CSS + minimal JS
+  Instructions (Hindi):
+    - Is file ko copy karke apne project me `video-background.html` naam se save karo.
+    - Apna background video "bg.mp4" naam se is file ke saath same folder me rakh do, ya <video> tag me src ko apne video path se replace kar do.
+    - Agar video nahi chahiye to <video> element ko comment kar do aur .bg-fallback ke liye ek image set kar lo.
+
+  Features:
+    - Full-screen autoplay looping video (muted recommended for autoplay)
+    - Gradient + blur overlay for better contrast
+    - Centered hero content with frosted-glass card
+    - Subtle animated floating blobs (pure CSS)
+    - Fallback image support for browsers/devices that block autoplay
+-->
+
+
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Stylish Video Background</title>
+  <link rel="stylesheet" href="/static/bulk.css">
+</head>
+<body>
+
+  <!-- Fallback image (uncomment and set url if needed) -->
+  <div class="bg-fallback" style="background-image:url('fallback.jpg')"></div>
+
+  <!-- Video wrapper: replace src with your video file name/path -->
+  <div class="bg-video-wrap">
+    <video id="bgVideo" autoplay muted loop playsinline>
+      <source src="bg.mp4" type="video/mp4">
+      <!-- Provide additional formats if available -->
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="overlay"></div>
+  <div class="noise"></div>
+
+  <!-- Floating colorful blobs -->
+  <div class="blobs" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+  
+  <div id="app" class="app">
+    <center><div class="card">
+      <h1>Bulk Triggered successfully</h1>
+      
+      <div class="actions">
+      <a href="/static/dashboard.html">  <button class="btn btn-primary">Home</button></a>
+        
+      </div>
+    </div></center>
+  </div>
+
+  <button id="muteBtn" class="mute-toggle" aria-pressed="true">🔇 Mute</button>
+
+  <script>
+    // Small script to toggle mute (useful for testing locally)
+    const bg = document.getElementById('bgVideo');
+    const muteBtn = document.getElementById('muteBtn');
+    if(bg){
+      muteBtn.addEventListener('click', ()=>{
+        bg.muted = !bg.muted;
+        muteBtn.textContent = bg.muted ? '🔇 Mute' : '🔊 Unmute';
+        muteBtn.setAttribute('aria-pressed', bg.muted);
+      });
+    } else {
+      muteBtn.style.display='none';
+    }
+  </script>
+
+</body>
+</html>

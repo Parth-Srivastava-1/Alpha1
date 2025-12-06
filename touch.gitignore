@@ -1,0 +1,11 @@
+# Environment files
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Temporary files
+*.log
+*.sqlite
+uploads/

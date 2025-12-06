@@ -1,0 +1,8 @@
+What is AI?
+AI stands for Artificial Intelligence, which enables machines to mimic human intelligence.
+
+How does machine learning work?
+Machine learning is a subset of AI that learns patterns from data and improves over time.
+
+What is a chatbot?
+A chatbot is a software program that can simulate conversations with humans.

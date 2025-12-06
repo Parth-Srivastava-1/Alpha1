@@ -1,0 +1,8 @@
+Customer: I can't log in to my account.
+Support: Please try resetting your password.
+
+Customer: How do I track my order?
+Support: You can track your order using the tracking link in your email.
+
+Customer: What is your refund policy?
+Support: Our refund policy allows returns within 30 days of purchase.

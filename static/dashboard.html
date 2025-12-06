@@ -1,0 +1,124 @@
+
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bulk Message Form</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="/static/dashboard.css">
+  <link rel="stylesheet" href="/static/Alpha.css">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <!-- Logo -->
+        <img src="/static/Black Blue Minimalist Floral Logo.png" alt="ALPHA" class="logo" />
+      <div class="title">ALPHA</div>
+    </div>
+
+    <nav class="nav">
+      <a id="menu-setup" class=""><i data-feather="settings"></i> Setup Bot</a>
+      <a id="menu-load" class=""><i data-feather="upload"></i> Load Bot</a>
+      <a id="menu-bulk" class="active"><i data-feather="send"></i> Trigger Bulk Message</a>
+      <a id="menu-about"><i data-feather="info"></i> About Us</a>
+    </nav>
+
+    <div class="sidebar-footer">© 2025 ALPHA</div>
+  </aside>
+
+  <div class="content">
+    <!-- Setup Bot Form -->
+    <div id="setup-section" class="hidden">
+      <h2>Setup Bot</h2>
+      <form id="botForm" class="maytapi" action="http://127.0.0.1:8000/submit_maytapi" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="MAYTAPI-PRODUCT-ID">MAYTAPI-PRODUCT-ID</label>
+          <input type="text" placeholder="Enter your MAYTAPI-PRODUCT-ID here." size="45" id="MAYTAPI-PRODUCT-ID" name="MAYTAPI_PRODUCT_ID" required>
+        </div>
+        <div class="form-group">
+          <label for="MAYTAPI-PHONE-ID">MAYTAPI-PHONE-ID</label>
+          <input type="text" placeholder="Enter your MAYTAPI-PHONE-ID here." size="30" id="MAYTAPI-PHONE-ID" name="MAYTAPI_PHONE_ID" required>
+        </div>
+        <div class="form-group">
+          <label for="MAYTAPI-TOKEN">MAYTAPI-TOKEN</label>
+          <input type="text" placeholder="Enter your MAYTAPI-TOKEN here." size="45" id="MAYTAPI-TOKEN" name="MAYTAPI_TOKEN" required>
+        </div>
+        <div class="form-group">
+          <label for="openai_api_key_maytapi">OPENAI-API-KEY</label>
+          <textarea name="openai_api_key_maytapi" placeholder="Enter your openai api key here" id="openai_api_key_maytapi" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="PINECONE-API-KEY">PINECONE-API-KEY</label>
+          <input type="text" placeholder="Enter your PINECONE-API-KEY here." size="80" id="PINECONE-API-KEY" name="PINECONE_API_KEY" required>
+        </div>
+        <div class="form-group">
+          <label for="Pinecone_Index_name">Pinecone Index name</label>
+          <input type="text" placeholder="Enter your Pinecone Index name here." size="30" id="Pinecone_Index_name" name="Pinecone_Index_name" required>
+        </div>
+        <div class="form-group">
+          <label for="upload_sheet">Enter sheet for bulk message</label>
+          <label for="upload_sheet" class="custom-json">Upload Excel (.xlsx)</label>
+          <input type="file" id="upload_sheet" name="bulk_sheet" accept=".xlsx">
+          <span id="file-name"></span>
+        </div>
+        <div class="form-group">
+          <label for="Prompt">Bot Prompt</label>
+          <textarea placeholder="Enter your Bot Prompt here;" id="Prompt" name="Prompt" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <!-- Load Bot Form -->
+    <div id="load-section" class="hidden">
+      <h2>Load Saved Bot</h2>
+      <form class="load_bot" id="botform" action="http://127.0.0.1:8000/load_bot" method="POST">
+        <div class="form-group">
+          <label for="Bot_ID">Enter your Bot ID</label>
+          <input type="text" placeholder="Enter your Bot ID here." size="45" id="Bot_ID" name="Bot_ID" required>
+        </div>
+        <div class="form-group">
+          <label for="openai_api_key_load">Enter your OPENAI API Key</label>
+          <textarea name="openai_api_key_load" id="openai_api_key_load" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="upload_sheet1">Enter sheet for bulk message (Optional, will override old one)</label>
+          <label for="upload_sheet1" class="custom-json">Upload Excel (.xlsx)</label>
+          <input type="file" id="upload_sheet1" name="bulk_sheet_load" accept=".xlsx">
+          <span id="file-name2"></span>
+        </div>
+        <button type="submit">Load Bot</button>
+      </form>
+    </div>
+
+    <!-- Bulk Message Form -->
+    <div id="bulk-section">
+      <h2>Trigger Bulk Message</h2>
+      <form id="bulkForm" action="http://127.0.0.1:8000/bulk_hi" method="POST">
+        <div class="form-group">
+          <label for="message">Message Text</label>
+          <textarea id="message" name="message" rows="4" placeholder="Type your message here..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Set range of numbers you want to send message</label>
+          <div class="range-fields">
+            <input type="number" id="start" name="start" placeholder="Starting Number" required />
+            <input type="number" id="end" name="end" placeholder="Ending Number" required />
+          </div>
+        </div>
+        <button type="submit">Trigger Bulk</button>
+      </form>
+    </div>
+
+    <!-- About Us -->
+    <div id="about-section" class="hidden">
+      <h2>About Us</h2>
+      <p>Coming Soon....</p>
+    </div>
+  </div>
+
+  <script src="/static/dashboard.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

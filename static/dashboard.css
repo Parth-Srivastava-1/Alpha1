@@ -1,0 +1,152 @@
+:root{
+  --bg-0: #0b0f14;
+  --bg-1: #0e141b;
+  --bg-2: #111821;
+  --glass: rgba(15, 22, 30, 0.75);
+  --border: rgba(255,255,255,0.08);
+  --text: #d7e2f2;
+  --muted: #8a98a8;
+  --neon-pink: #ff3cac;
+  --neon-cyan: #00e5ff;
+}
+
+body{
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, var(--bg-0), var(--bg-1) 55%, var(--bg-2));
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  display: flex;
+}
+
+.sidebar{
+  width: 260px;
+  backdrop-filter: blur(10px);
+  background: var(--glass);
+  border-right: 1px solid var(--border);
+  padding: 20px 16px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.brand{
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 8px; border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.logo{ border-radius: 6px; }
+.brand .title{ font-weight: 700; }
+
+.nav{ margin-top: 18px; display: grid; gap: 8px; }
+.nav a{
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; color: var(--text);
+  text-decoration: none; border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.02);
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.nav a.active{
+  border-color: rgba(0,240,255,0.35);
+  background: rgba(0,240,255,0.08);
+}
+
+.sidebar-footer{
+  margin-top: 12px; padding: 10px;
+  border-top: 1px dashed var(--border);
+  color: var(--muted); font-size: 12px;
+}
+
+.content{ flex: 1; padding: 20px; }
+.hidden{ display: none; }
+
+.form-group{ margin-bottom: 12px; }
+label{ font-size: 14px; display: block; margin-bottom: 4px; }
+
+input, textarea, button{
+  width: 100%; padding: 8px; border-radius: 6px;
+  border: 1px solid var(--border); background: rgba(255,255,255,0.05);
+  color: var(--text); font-family: inherit;
+}
+button{
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+  border: none; cursor: pointer; font-weight: 600;
+}
+.range-fields{ display: flex; gap: 10px; }
+.range-fields input{ flex: 1; }
+
+/* Additional styles for forms */
+.maytapi, .load_bot {
+  background: rgba(10, 10, 30, 0.95);
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px auto;
+  width: 70%;
+  max-width: 600px;
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.7);
+  text-align: left;
+}
+
+.maytapi label, .load_bot label {
+  display: block;
+  font-weight: bold;
+  margin: 10px 0 5px;
+  color: #c0c0ff;
+}
+
+.maytapi input[type="text"],
+.load_bot input[type="text"],
+.maytapi input[type="file"],
+.load_bot input[type="file"],
+.maytapi textarea,
+.load_bot textarea {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.08);
+  color: #f0f0ff;
+  transition: 0.3s ease;
+}
+
+.maytapi input:focus,
+.load_bot input:focus,
+.maytapi textarea:focus,
+.load_bot textarea:focus {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid #5a189a;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-json {
+  display: inline-block;
+  padding: 8px 18px;
+  background: linear-gradient(45deg, #3a0ca3, #03045e);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.custom-json:hover {
+  background: linear-gradient(45deg, #03045e, #3a0ca3);
+}
+
+#file-name, #file-name2 {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #ccc;
+}
+.logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain; /* ya cover, depending on look */
+  border-radius: 4px;  /* optional rounded corners */
+}
